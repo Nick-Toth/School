@@ -1,0 +1,12 @@
+%%~
+This is a label for the task list~
+%T~
+Do such and such.~
+%T~
+Do this other thing.~
+%T~
+Then do this other thing.~
+%T~
+Do step 2 again, then go to step 5.~
+%T~
+Finally, do this last thing.
