@@ -1,5 +1,5 @@
 /* ******************************************************************
-// File Name:  Main.cpp
+// File Name:  Program1_NToth.cpp
 // Created By: Nicholas Toth
 // E-Mail:     ntoth@pdx.edu
 // Date:       January 31st, 2017
