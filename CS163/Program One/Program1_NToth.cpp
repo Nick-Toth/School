@@ -207,8 +207,8 @@ int main(void)
 //
 // *****************************************/
 void handleNewChan( Channels *& chan_lst,
-					char *& chan_name,
-					char *& chan_description )
+		    char *& chan_name,
+		    char *& chan_description )
 {
     short num_users = 0, // Total number of useers to be added.
           user_cnt  = 0; // Index counter for inserting new users into new Channel's User array.
