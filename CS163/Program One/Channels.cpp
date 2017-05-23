@@ -165,9 +165,11 @@ Channel :: ~Channel()
     // Call the destructors of each user in the usergroup.
     delete[] usergroup;
     usergroup = NULL;
+
     // Erase the Channel's title.
     delete[] channel_name;
     channel_name = NULL;
+
     // Erase the description of the Channel.
     delete[] description;
     description = NULL;
@@ -354,12 +356,13 @@ bool Channels :: insertChannel( const char * chan_name,
     // While there are unadded users..
     while(u_group_size > u_index)
     {
-		// Copy over the username from the passed usergroup to the new Channel usergroup.
+	// Copy over the username from the passed usergroup to the new Channel usergroup.
         strcpy(new_chan->usergroup[u_index].user_name, usergroup[u_index].user_name);
-		// Copy over the email from the passed usergroup to the new Channel usergroup.
+	// Copy over the email from the passed usergroup to the new Channel usergroup.
         strcpy(new_chan->usergroup[u_index].user_email, usergroup[u_index].user_email);
+        
         // Increment the usergroup index counter.
-		++u_index;
+	++u_index;
     }
 
     // Temporary Channel pointer for traversal.
@@ -375,7 +378,7 @@ bool Channels :: insertChannel( const char * chan_name,
     // Otherwise (the list is not empty)..
     else
     {
-	      // Iterate through the list, and check that the name of the new Channel does
+	// Iterate through the list, and check that the name of the new Channel does
         // not exist somewhere else in the Channel list.
         while(temp_chan->next && strcmp(temp_chan->channel_name, new_chan->channel_name))
             temp_chan = temp_chan->next;
@@ -692,8 +695,8 @@ bool Channels :: dispChanWithUsr(const char * user_name) const
             // Print alert that a match has been found, as well as metadata
             // for the Channel in which it was found.
             std::cout << std::endl
-                    << "\n  User match found in Channel: " << temp_chan->channel_name
-                    << std::endl << std::endl;
+                      << "\n  User match found in Channel: " << temp_chan->channel_name
+                      << std::endl << std::endl;
 
             // Reset user_match to false to check the next channel.
             user_match = false;
@@ -904,8 +907,7 @@ bool Channels :: displayChannelNames( const Channel * head,
 {
     // If head is NULL, report success. No need to return false
     // because actual head is checked in public function.
-    if(!head)
-        return true;
+    if(!head) return true;
 
     // Print out the channel name.
     std::cout << "\n    Channel #" << count << " => " << head->channel_name << std::endl;
