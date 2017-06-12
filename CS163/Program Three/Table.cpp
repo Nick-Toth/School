@@ -127,10 +127,10 @@ Table :: Table(const Table & table)
 // ********************************************/
 Table :: ~Table(void)
 {
-      				 // Index counter.
+  // Index counter.
   unsigned int index = 0,
-      				 // Deleted node counter.
-      				 deleted = 0;
+  // Deleted node counter.
+  deleted = 0;
 
   // Temporary node for traversing events.
   ENode * temp;
@@ -351,12 +351,12 @@ unsigned int Table :: hash(const char * key) const
   // If the key is NULL, return -1.
   if(!key) return -1;
 
-      				 // Index to be returned.
+	       // Index to be returned.
   unsigned int hash_val = 1,
-							 // Length of the key.
-							 len = strlen(key),
-      				 // Index counter for key.
-      				 index = 0;
+	       // Length of the key.
+	       len = strlen(key),
+	       // Index counter for key.
+	       index = 0;
 
 
   // For each character in the key..
