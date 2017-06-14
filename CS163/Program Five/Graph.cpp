@@ -100,13 +100,14 @@ Trailhead :: Trailhead(const Trailhead & t_head_src)
 // ********************************************/
 Trailhead :: ~Trailhead(void)
 {
-	// If the location is not NULL..
+  // If the location is not NULL..
   if(location)
   {
     // Delete and nullify it.
     delete[] location;
     location = NULL;
   }
+
   // If the description is not NULL..
   if(description)
   {
