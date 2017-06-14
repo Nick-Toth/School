@@ -1,0 +1,6 @@
+% This file contains the lengths of the
+% trails given by Trailheads.txt. I could
+% have put this information in the same
+% file but I didn't.
+%
+# 5 2 7 5 4 5 10 4 4 5 3 5 2 3 4 8 7 8
