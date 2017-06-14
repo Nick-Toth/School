@@ -175,15 +175,15 @@ int main(void)
         break;
       case 5: // Execute display all trailheads handler.
         disp_index_ret = handleDisplayTheads(*graph);
-				// If display returned an array, deallocate and nullify it.
-				if(disp_index_ret)
-				{ delete[] disp_index_ret; disp_index_ret = NULL; }
+	// If display returned an array, deallocate and nullify it.
+	if(disp_index_ret)
+	{ delete[] disp_index_ret; disp_index_ret = NULL; }
         break;
       case 6: // Execute display all intersections handler.
         disp_index_ret = handleDisplayIsecs(*graph);
-				// If display returned an array, deallocate and nullify it.
-				if(disp_index_ret)
-				{ delete[] disp_index_ret; disp_index_ret = NULL; }
+	// If display returned an array, deallocate and nullify it.
+	if(disp_index_ret)
+	{ delete[] disp_index_ret; disp_index_ret = NULL; }
         break;
       default: // 7 - Quit the program.
           quit = true;
@@ -514,7 +514,7 @@ void displayLocationError(int return_val)
   cout << endl;
 
   if(return_val < 1)
-      // Display an error message corresponding to the returned error code.
+    // Display an error message corresponding to the returned error code.
     switch(return_val)
     {
       case -2: // Empty graph.
@@ -571,10 +571,10 @@ int vtexSelection( const char * tex_type,
   // Try to display the trailheads / intersections.
   indices = thead? handleDisplayTheads(graph) : handleDisplayIsecs(graph);
 
-	// Report failure.
+  // Report failure.
   if(!indices) return -1;
 
-	// Read in the selected index.
+  // Read in the selected index.
   vertex_num = readNum(tex_type);
 
 	// If the selection is invalid, return -1.
@@ -623,7 +623,7 @@ int * handleDisplayTheads(Graph & graph)
 
   // If the function returns 0 (no trailheads)..
   if(graph_disp_ret && graph_disp_ret[0] == 0)
-	{
+  {
     // Display an alert that there are no trailheads in the graph.
     cout << "\n\t There are no trailheads to display!" << endl;
 
@@ -651,7 +651,7 @@ int * handleDisplayIsecs(Graph & graph)
 
   // If the function returns 0 (no intersections)..
   if(graph_disp_ret && graph_disp_ret[0] == 0)
-	{
+  {
     // Display an alert that there are no intersections in the graph.
     cout << "\n\t There are no intersections to display!" << endl;
 
@@ -970,10 +970,10 @@ int loadIntersections(int INTERSECTION_BUFFER[DATA_FILE_SIZE][DATA_FILE_SIZE])
       // being read in for a given trail.
       current_intsec = 0;
 
-						 	 // Index counter for filling INTSEC_BUFFER.
-	unsigned int current_intsec_ch = 0,
-							 // Current index of the line being read in.
-							 intsec_ch = 0;
+	       // Index counter for filling INTSEC_BUFFER.
+  unsigned int current_intsec_ch = 0,
+	       // Current index of the line being read in.
+	       intsec_ch = 0;
 
        // Buffer for parsing individual intersections.
   char INTSEC_BUFFER[10],
@@ -992,6 +992,7 @@ int loadIntersections(int INTERSECTION_BUFFER[DATA_FILE_SIZE][DATA_FILE_SIZE])
       intsec_file.get(LINE_BUFFER, 100, '\n');
       intsec_file.ignore(100, '\n');
     }
+    // Skip header comments.
     while(LINE_BUFFER[0] == '%');
 
     // Reset buffer index counters.
