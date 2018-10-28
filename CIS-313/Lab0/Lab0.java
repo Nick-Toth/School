@@ -30,68 +30,69 @@ import java.lang.NullPointerException;
 
 public class lab0
 {
-  public static void main( String[] args
-  ){
-    // Read in the lab results
-    labResults results = scanLabData();
 
-    // If the program executed successfully, display the results.
-    if(!results.isEmpty()) { results.printLabResults(); }
-    else { System.out.println("Failed to print...\nInput Quantity Label: 0..\n"); }
-  }
+	public static void main( String[] args
+	){
+		// Read in the lab results
+		labResults results = scanLabData();
+
+		// If the program executed successfully, display the results.
+		if(!results.isEmpty()) { results.printLabResults(); }
+		else { System.out.println("Failed to print...\nInput Quantity Label: 0..\n"); }
+	}
 
 
-  /* *************************************
-  \\ scanLabData() reads in a set of pairs
-  // of integers from an input data file,
-  \\ and constructs a labResults object
-  // with, you guessed it, lab results.
-  \\ *************************************/
-  private static labResults scanLabData()
-  {
-    // Create a new scanner to read in lab data.
-    Scanner scanner = new Scanner(System.in);
+	/* *************************************
+	\\ scanLabData() reads in a set of pairs
+	// of integers from an input data file,
+	\\ and constructs a labResults object
+	// with, you guessed it, lab results.
+	\\ *************************************/
+	private static labResults scanLabData()
+	{
+		// Create a new scanner to read in lab data.
+		Scanner scanner = new Scanner(System.in);
 
-    // Determine the number of inputs for memory allocation.
-    final int line_cnt = scanner.nextInt();
+		// Determine the number of inputs for memory allocation.
+		final int line_cnt = scanner.nextInt();
 
-    // Initialize variables:
-    int i = 0  // Index
-      , m = 0 , n = 0; // i.e., mod m n.
+		// Initialize variables:
+		int i = 0  // Index
+		  , m = 0 , n = 0; // i.e., mod m n.
 
-    // Storage for pending lab data scan and analysis.
-    labResults res = new labResults(line_cnt);
+		// Storage for pending lab data scan and analysis.
+		labResults res = new labResults(line_cnt);
 
-    // Read in line_cnt pairs of integers.
-    for(; i < line_cnt; ++i)
-      try { res.newResult(scanner.nextInt(), scanner.nextInt()); }
-      catch (NoSuchElementException e) { System.out.println("\nError in scanLabData." + e); }
+		// Read in line_cnt pairs of integers.
+		for(; i < line_cnt; ++i)
+			try { res.newResult(scanner.nextInt(), scanner.nextInt()); }
+			catch (NoSuchElementException e) { System.out.println("\nError in scanLabData." + e); }
 
-    scanner.close();
-    return res;
-  }
+		scanner.close();
+		return res;
+	}
 
 
 	public static class labResults
 	{
-  	public labResults( int num_results
-  	){
-    	total_results = num_results;
-    	current_results = 0;
-    	results = new labResult[num_results];
-  	}
+		public labResults( int num_results
+		){
+			total_results = num_results;
+			current_results = 0;
+			results = new labResult[num_results];
+		}
 
 
-  	/* ***************************************
-  	\\ newResult pushes a new lab result onto
-  	// the stack, assuming the stack is not
+		/* ***************************************
+		\\ newResult pushes a new lab result onto
+		// the stack, assuming the stack is not
   	\\ full.
   	// ***************************************/
   	public boolean newResult( int m
   	                        , int n
   	){
-    	if (current_results + 1 > total_results) return false;
-    	results[current_results++] = new labResult(m, n);
+			if (current_results + 1 > total_results) return false;
+			results[current_results++] = new labResult(m, n);
     	return true;
   	}
 
