@@ -1,5 +1,5 @@
 /* ***********************************************
-\\ File: Assignment II.java
+\\ File: jab2.java
 // Name: Nick G. Toth
 \\ Email: ngt@uoregon.edu
 // Date: Nov. 1, 2018
