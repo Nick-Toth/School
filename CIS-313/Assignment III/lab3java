@@ -1,0 +1,124 @@
+/* ****************************************************
+\\ File: lab3.java
+// Name: Nick G. Toth
+\\ Email: ngt@uoregon.edu
+// Date: Nov. 16, 2018
+\\ Class: CIS 313
+//
+\\ Overview: This file is the controller for my
+// submission for lab3 of cis-313. Specifically,
+\\ lab3.java tests a priority Queue (pQueue.java)
+// based on a max heap (MaxHeap.java).
+\\
+//
+\\ Instructions: Define some data file (e.g., data.txt)
+// such that each line contains
+\\
+//   Compile: javac lab3.java
+\\   Execute: java lab3 < INSERT_DATA_FILENAME.txt
+//
+\\
+// ****************************************************/
+
+import java.util.Scanner;
+
+public class lab3
+{
+  public static void main(String[] args)
+  {
+    // IO Fields.
+    Scanner scan = new Scanner(System.in);
+    String input, task;
+
+    // Temp storage for pQueue data.
+    Comparable<Integer> max;
+
+    // Construct a pQueue object with as many indices
+    // as there are inputs in the data file; This will
+    // typically exceed the necessary size, but it is
+    // sufficient for testing.
+    pQueue pq;
+    if(scan.hasNextInt())
+        pq = new pQueue<Integer>(scan.nextInt());
+    else return; // ??
+
+    // Go to the first input line of the data file.
+    scan.nextLine();
+
+    // Loop through input data.
+    while (scan.hasNext())
+    {
+      input = scan.nextLine();
+      String[] phrases = input.split(" ");
+      task = phrases[0];
+
+      //System.out.println("Task: " + task);
+
+      // Execute the current instruction.
+      switch(task)
+      {
+        case "insert":
+          pq.insert(Integer.parseInt(phrases[1]));
+          break;
+        case "print":
+          pq.print();
+          break;
+        case "isEmpty":
+          if(pq.isEmpty())
+            System.out.println("Empty");
+          else
+            System.out.println("Not Empty");
+          break;
+        case "maximum":
+          max = pq.maximum();
+          if(max != null)
+            System.out.println(max);
+          break;
+        case "extractMax":
+          max = pq.extractMax();
+          if(max != null)
+            System.out.println(max);
+          break;
+        case "white": // Print a line of whitesspace.
+          int wsp = Integer.parseInt(phrases[1]);
+          while(0 < wsp--)
+            System.out.println("");
+          break;
+        case "label": // Print a label
+          System.out.println(phrases[1]);
+          break;
+        // Not functioning properly.
+        case "build": // Build heap from a list of numbers.
+            pq.build(stoiarr(phrases[1]));
+            break;
+        default:
+          System.out.println("Unrecognized command: " + task);
+          break;
+      }
+    }
+    scan.close();
+  }
+
+
+  /* **************************************
+  \\ Converts a string of the form
+  // "[n_1,...,n_k]", where n_x is an
+  \\ integer, to an array of integers,
+  // namely, [n_1,...,n_k].
+  \\
+  // **************************************/
+  public static Integer[] stoiarr(String arr)
+  {
+    String[] items = arr.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\s", "").split(",");
+
+    Integer[] results = new Integer[items.length];
+
+    for (int i = 0; i < items.length; i++)
+    {
+        try { results[i] = Integer.parseInt(items[i]); }
+        catch (NumberFormatException nfe) { }
+    }
+
+    return results;
+  }
+}
