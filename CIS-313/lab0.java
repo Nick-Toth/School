@@ -1,5 +1,5 @@
 /* ****************************************************
-\\ File: Assignment I.java
+\\ File: lab1.java
 // Name: Nick G. Toth
 \\ Email: ngt@uoregon.edu
 // Date: Oct. 4, 2018
