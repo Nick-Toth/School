@@ -4,6 +4,7 @@
 \\ Date: Nov 15, 2020
 // Email: ngt@uoregon.edu
 \\
+//
 \\ Overview: This file contains an intpreter (for which
 // some code, including essentially all of the parser, was
 \\ provided by my CIS 425 Instructor at UO, Zena Ariola).
@@ -11,7 +12,7 @@
 \\ While studying for the second midterm, I extended the
 // interpreter's functionality to include rational numbers.
 \\ Rational numbers are represented here as (int, int)
-// where the second int is non-negative. It's not very
+// where the second int is non-zero. It's not very
 \\ fancy. I haven't written code to reduce the rationals,
 // so they're not super nice to work with. Future extension?!
 \\ 
